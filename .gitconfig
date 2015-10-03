@@ -1,0 +1,7 @@
+[user]
+	email = jatb86@gmail.com
+	name = Javier Tibau
+[push]
+	default = simple
+[merge]
+	tool = vim

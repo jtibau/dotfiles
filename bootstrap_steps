@@ -1,0 +1,44 @@
+# INSTALL HOMEBREW: http://brew.sh
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
+
+# Install Caskroom: http://caskroom.io
+brew install caskroom/cask/brew-cask
+
+# FOLLOWING THIS: http://lapwinglabs.com/blog/hacker-guide-to-setting-up-your-mac
+
+# Install GNU core utilities (those that come with OS X are outdated)
+brew install coreutils
+
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+brew install findutils
+
+# Install Bash 4
+brew install bash
+
+# Install more recent versions of some OS X tools
+brew tap homebrew/dupes
+brew install homebrew/dupes/grep
+
+# Install other good stuff
+brew install graphicsmagick git tmux vim
+
+# Install zsh and configure for user
+brew install zsh zsh-completions
+echo "/usr/local/bin/zsh" >> /etc/shells
+# Install prezto from: https://github.com/sorin-ionescu/prezto
+
+# UPDATE PATH and MANPATH
+PATH="$HOME/bin:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# Install a bunch of apps
+brew cask install --appdir="/Applications" google-chrome screenflick slack iterm2 spectacle the-unarchiver
+
+# Configure iterm2 using this guide: http://sourabhbajaj.com/mac-setup/iTerm/README.html
+# Add inconsolata font and configure it in iterm2 to use 14pts
+
+# Add .gitconfig and .gitignore
+# Add .ssh folder
+
+# Install mactex
+
