@@ -4,33 +4,18 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-sensible'
-Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'klen/python-mode'
+Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
-syntax enable
-set background=dark
-colorscheme solarized
-
-set tabstop=4 shiftwidth=4 expandtab
-let g:indent_guides_start_level = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
-
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -43,9 +28,23 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
 let mapleader=","
 
-" Pymode
 
-"let g:pymode_rope_completion = 1
-"let g:pymode_rope_complete_on_dot = 1
-"let g:pymode_rope_completion_bind = '<C-Space>'
+syntax enable
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
+
+set tabstop=4 shiftwidth=4 expandtab
+
+set number
+set autoindent
+set cursorline
+set showmatch
+
+
+let g:SuperTabDefaultCompletionType = "context"
+
 
