@@ -18,11 +18,11 @@ info "Starting bootstrap..."
 
 # Hostname
 echo ""
-read -p "Enter machine hostname (e.g. rambla or gotic): " HOSTNAME
-sudo scutil --set HostName "$HOSTNAME"
-sudo scutil --set LocalHostName "$HOSTNAME"
-sudo scutil --set ComputerName "$HOSTNAME"
-info "Hostname set to: $HOSTNAME"
+read -p "Enter machine hostname (e.g. rambla or gotic): " MACHINE_NAME
+sudo scutil --set HostName "$MACHINE_NAME"
+sudo scutil --set LocalHostName "$MACHINE_NAME"
+sudo scutil --set ComputerName "$MACHINE_NAME"
+info "Hostname set to: $MACHINE_NAME"
 
 # Homebrew
 if ! command -v brew &>/dev/null; then
@@ -80,23 +80,27 @@ symlink "$DOTFILES/config/starship.toml" "$HOME/.config/starship.toml"
 # SSH config — substitute HOSTNAME placeholder with actual machine name
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
-sed "s/HOSTNAME/$HOSTNAME/g" "$DOTFILES/config/ssh/config" > "$HOME/.ssh/config"
+sed "s/HOSTNAME/$MACHINE_NAME/g" "$DOTFILES/config/ssh/config" > "$HOME/.ssh/config"
 chmod 600 "$HOME/.ssh/config"
 info "  ~/.ssh/config generated for $HOSTNAME"
 
 # VS Code extensions
-info "Installing VS Code extensions..."
-code --install-extension catppuccin.catppuccin-vsc
-code --install-extension catppuccin.catppuccin-vsc-icons
-code --install-extension ms-vscode-remote.remote-ssh
-code --install-extension ms-vscode-remote.remote-containers
-code --install-extension eamodio.gitlens
-code --install-extension yzhang.markdown-all-in-one
-code --install-extension vscodevim.vim
+if command -v code &>/dev/null; then
+  info "Installing VS Code extensions..."
+  code --install-extension catppuccin.catppuccin-vsc || true
+  code --install-extension catppuccin.catppuccin-vsc-icons || true
+  code --install-extension ms-vscode-remote.remote-ssh || true
+  code --install-extension ms-vscode-remote.remote-containers || true
+  code --install-extension eamodio.gitlens || true
+  code --install-extension yzhang.markdown-all-in-one || true
+  code --install-extension vscodevim.vim || true
+else
+  warning "VS Code 'code' CLI not found — install extensions manually"
+fi
 
 # Neovim plugins
 info "Installing Neovim plugins..."
-nvim --headless "+Lazy! sync" +qa 2>/dev/null || warning "Neovim plugins may need manual install (run nvim once)"
+nvim --headless '+Lazy sync' +qa 2>/dev/null || warning "Neovim plugins may need manual install (run nvim once)"
 
 # GitHub known_hosts
 info "Adding GitHub to known_hosts..."
@@ -114,8 +118,8 @@ echo ""
 info "Bootstrap complete!"
 echo ""
 warning "Manual steps remaining:"
-echo "  1. Generate SSH key: ssh-keygen -t ed25519 -C \"jtibau@$HOSTNAME\" -f ~/.ssh/id_ed25519_$HOSTNAME"
-echo "  2. Add public key to GitHub: cat ~/.ssh/id_ed25519_$HOSTNAME.pub"
+echo "  1. Generate SSH key: ssh-keygen -t ed25519 -C \"jtibau@$MACHINE_NAME\" -f ~/.ssh/id_ed25519_$MACHINE_NAME"
+echo "  2. Add public key to GitHub: cat ~/.ssh/id_ed25519_$MACHINE_NAME.pub"
 echo "  3. Switch dotfiles remote to SSH: git -C ~/dotfiles remote set-url origin git@github.com:jtibau/dotfiles.git"
 echo "  4. Install Docker manually (requires GUI interaction)"
 echo "  5. Add machine to Tailscale"
