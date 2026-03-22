@@ -1,0 +1,19 @@
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# Better defaults
+alias ls='eza'
+alias ll='eza -la'
+alias cat='bat'
+alias find='fd'
+
+# Git
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph'
+
+# System
+alias update='brew upgrade'
