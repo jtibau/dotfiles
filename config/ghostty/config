@@ -1,0 +1,6 @@
+theme = Catppuccin Mocha
+font-family = "Monaspace Neon"
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+auto-update = off

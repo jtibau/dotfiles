@@ -1,7 +1,7 @@
 [user]
-	email = jatb86@gmail.com
+	email = javier@javiertibau.com
 	name = Javier Tibau
 [push]
 	default = simple
 [merge]
-	tool = vim
+	tool = nvim
