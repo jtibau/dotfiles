@@ -1,0 +1,37 @@
+{
+  // Theme
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+
+  // Font
+  "editor.fontFamily": "Monaspace Neon, monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": false,
+
+  // Editor
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.smoothScrolling": true,
+  "editor.lineNumbers": "relative",
+  "editor.renderWhitespace": "boundary",
+  "editor.minimap.enabled": false,
+
+  // Terminal
+  "terminal.integrated.fontFamily": "Monaspace Neon",
+  "terminal.integrated.fontSize": 13,
+
+  // Vim
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": false,
+
+  // Git
+  "git.autofetch": true,
+
+  // Misc
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "explorer.confirmDelete": false,
+  "window.newWindowDimensions": "maximized"
+}

@@ -72,7 +72,20 @@ symlink "$DOTFILES/config/ghostty/config" "$HOME/.config/ghostty/config"
 mkdir -p "$HOME/.config"
 symlink "$DOTFILES/config/nvim"     "$HOME/.config/nvim"
 
+mkdir -p "$HOME/Library/Application Support/Code/User"
+symlink "$DOTFILES/config/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+
 symlink "$DOTFILES/config/starship.toml" "$HOME/.config/starship.toml"
+
+# VS Code extensions
+info "Installing VS Code extensions..."
+code --install-extension catppuccin.catppuccin-vsc
+code --install-extension catppuccin.catppuccin-vsc-icons
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension eamodio.gitlens
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension vscodevim.vim
 
 # Neovim plugins
 info "Installing Neovim plugins..."
