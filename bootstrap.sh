@@ -77,6 +77,13 @@ symlink "$DOTFILES/config/vscode/settings.json" "$HOME/Library/Application Suppo
 
 symlink "$DOTFILES/config/starship.toml" "$HOME/.config/starship.toml"
 
+# SSH config — substitute HOSTNAME placeholder with actual machine name
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+sed "s/HOSTNAME/$HOSTNAME/g" "$DOTFILES/config/ssh/config" > "$HOME/.ssh/config"
+chmod 600 "$HOME/.ssh/config"
+info "  ~/.ssh/config generated for $HOSTNAME"
+
 # VS Code extensions
 info "Installing VS Code extensions..."
 code --install-extension catppuccin.catppuccin-vsc

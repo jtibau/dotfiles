@@ -1,6 +1,8 @@
 [user]
 	email = javier@javiertibau.com
 	name = Javier Tibau
+[init]
+	defaultBranch = main
 [push]
 	default = simple
 [merge]
