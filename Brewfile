@@ -1,5 +1,6 @@
 # CLI tools
 brew "bat"
+brew "btop"
 brew "eza"
 brew "fd"
 brew "fzf"
