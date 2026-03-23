@@ -97,6 +97,7 @@ if command -v code &>/dev/null; then
   code --install-extension eamodio.gitlens || true
   code --install-extension yzhang.markdown-all-in-one || true
   code --install-extension vscodevim.vim || true
+  code --install-extension james-yu.latex-workshop || true
 else
   warning "VS Code 'code' CLI not found — install extensions manually"
 fi

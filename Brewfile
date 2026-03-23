@@ -11,6 +11,7 @@ brew "ripgrep"
 brew "starship"
 brew "tmux"
 brew "zoxide"
+brew "tectonic"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
