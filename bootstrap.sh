@@ -77,6 +77,9 @@ symlink "$DOTFILES/config/vscode/settings.json" "$HOME/Library/Application Suppo
 
 symlink "$DOTFILES/config/starship.toml" "$HOME/.config/starship.toml"
 
+mkdir -p "$HOME/.claude"
+symlink "$DOTFILES/config/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+
 # SSH config — substitute HOSTNAME placeholder with actual machine name
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
