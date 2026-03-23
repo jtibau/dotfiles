@@ -13,11 +13,6 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
-# Dev environments — use Docker, NOT Homebrew
-# Rationale: projects depend on specific versions (Node, Python, Lua/Love2D, etc.)
-# Each project has its own Dockerfile or devcontainer.json
-cask "docker"
-
 # GUI apps
 cask "1password"
 cask "1password-cli"
