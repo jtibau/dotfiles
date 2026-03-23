@@ -116,6 +116,41 @@ sudo pmset -c sleep 0         # no sleep when on power
 sudo pmset -c disksleep 0     # no disk sleep when on power
 sudo pmset -a womp 1          # wake on network access
 
+# macOS defaults
+info "Configuring macOS defaults..."
+
+# Finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true       # show file extensions
+defaults write com.apple.finder AppleShowAllFiles -bool true          # show hidden files
+defaults write com.apple.finder ShowPathbar -bool true                # path bar
+defaults write com.apple.finder ShowStatusBar -bool true              # status bar
+defaults write com.apple.finder _FXSortFoldersFirst -bool true        # folders first
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"   # search current folder
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false  # no extension warning
+
+# Dock
+defaults write com.apple.dock show-recents -bool false                # no recent apps
+defaults write com.apple.dock mru-spaces -bool false                  # don't reorder spaces
+
+# Keyboard
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false   # no autocorrect
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false       # no auto-caps
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false     # no smart dashes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false    # no smart quotes
+defaults write NSGlobalDomain KeyRepeat -int 2                        # fast key repeat
+defaults write NSGlobalDomain InitialKeyRepeat -int 15                # short initial delay
+
+# System
+defaults write NSGlobalDomain AppleICUForce24HourTime -bool true      # 24h clock
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true  # expanded save panel
+
+# Screenshots
+defaults write com.apple.screencapture disable-shadow -bool true      # no window shadow
+
+# Apply Dock changes
+killall Dock
+killall Finder
+
 # Done
 echo ""
 info "Bootstrap complete!"
