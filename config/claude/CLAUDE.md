@@ -46,6 +46,9 @@ I prefer Docker for dev environments — do not install languages locally via br
 - Commit messages in English, imperative form ("Add X", "Fix Y")
 - Do not squash or force-push without asking
 
+## Filesystem
+- Always create new projects inside ~/Developer, never directly in ~
+
 ## Destructive actions
 Ask for confirmation before any destructive action (rm -rf, reset --hard, dropping databases, etc.).
 If unsure about the scope of a command, ask first.
